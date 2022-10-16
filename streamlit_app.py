@@ -56,9 +56,7 @@ if streamlit.button('add a fruit to the list'):
             
             
             
-            
-            
- streamlit.stop()         
+streamlit.stop()         
             
             
 my_cur = my_cnx.cursor()
