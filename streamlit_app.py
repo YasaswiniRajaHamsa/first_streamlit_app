@@ -1,18 +1,19 @@
-import streamlit
-streamlit.title('My parents new healthy diner')
-streamlit.header(' 🥣 Breafast menu')
-streamlit.text('🥑🍞Blueberry oatmeal')
-streamlit.text('idly')
-streamlit.text('dosa')
+#import streamlit
+#import pandas
+#import requests
+#import snowflake.connector from urllib.error import URLerror
 
-import pandas
+streamlit.title('My Moms New Healthy Diner')
+streamlit.header(' 🥣 Breafast Favourites')
+streamlit.text('🥑🍞Blueberry oatmeal')
+streamlit.text('idly with ghee')
+streamlit.text('dosa with podi')
+
+streamlit.title('Build your own fruit smoothie')
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')
-
-
 # Let's put a pick list here so they can pick the fruit they want to include 
 streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
-
 # Display the table on the page.
 streamlit.dataframe(my_fruit_list)
 
@@ -26,12 +27,14 @@ streamlit.header("Fruityvice Fruit Advice!")
 fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 streamlit.write('The user entered ', fruit_choice)
 
-import requests
+
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
 streamlit.dataframe(fruityvice_normalized)
+
+streamlit.stop()
 
 import snowflake.connector
 
