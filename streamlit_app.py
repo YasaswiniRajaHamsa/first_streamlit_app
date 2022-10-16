@@ -10,7 +10,7 @@ streamlit.text('🥑🍞Blueberry oatmeal')
 streamlit.text('idly with ghee')
 streamlit.text('dosa with podi')
 
-streamlit.stop()
+
 
 streamlit.header('Build your own fruit smoothie')
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
@@ -19,6 +19,7 @@ fruits_selected=streamlit.multiselect("pick some fruits:",list(my_fruit_list.ind
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
+streamlit.stop()
 
 streamlit.header("Fruityvice Fruit Advice!")
 fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
